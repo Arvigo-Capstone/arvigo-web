@@ -29,6 +29,7 @@ use Illuminate\Support\Facades\Artisan;
 */
 
 Route::get('/config', function () {
+    Artisan::call('storage:link');
     Artisan::call(
         'migrate:fresh',
         [
