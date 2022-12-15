@@ -74,7 +74,7 @@ class BookController extends Controller
             $cover_image = $request->file('cover_image')->store('book', 'public');
         }
 
-        $googleConfigFile = file_get_contents(env('GOOGLE_APPLICATION_CREDENTIALS'));
+        $googleConfigFile = file_get_contents('https://storage.googleapis.com/laravel-bookstore-app/hairullah-project-56431d962189.json');
         $storage = new StorageClient([
             'keyFile' => json_decode($googleConfigFile, true)
         ]);
