@@ -39,7 +39,7 @@ Route::get('/config', function () {
     Artisan::call(
         'db:seed',
         [
-            '--force' => true
+            '--force' => false
         ]
     );
 });
