@@ -79,9 +79,9 @@ kind: Ingress
 metadata:
   name: arvigo-web-ingress
   annotations:
-    kubernetes.io/ingress.global-static-ip-name: arvigo-ip-static-backend-global
+    kubernetes.io/ingress.global-static-ip-name: arvigo-ip-ex
     networking.gke.io/managed-certificates: arvigo-web-cert
-    kubernetes.io/ingress.allow-http: "false"
+    kubernetes.io/ingress.allow-http: "true"
     kubernetes.io/ingress.class: "gce"
 spec:
   rules:
