@@ -11,7 +11,7 @@ spec:
   ports:
   - protocol: TCP
     port: 80
-    targetPort: 8000
+    targetPort: 80
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -34,7 +34,7 @@ spec:
         image: asia.gcr.io/$PROJECT_ID/production/arvigo-web/arvigo-web:$SHORT_SHA
         imagePullPolicy: Always
         ports:
-        - containerPort: 8000
+        - containerPort: 80
           protocol: TCP
         resources:
           requests:
@@ -44,7 +44,7 @@ spec:
           failureThreshold: 10
           httpGet:
             path: /
-            port: 8000
+            port: 80
             scheme: HTTP
           initialDelaySeconds: 150
           periodSeconds: 30
@@ -54,7 +54,7 @@ spec:
           failureThreshold: 10
           httpGet:
             path: /
-            port: 8000
+            port: 80
             scheme: HTTP
           initialDelaySeconds: 150
           periodSeconds: 30
