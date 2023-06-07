@@ -12,25 +12,45 @@ use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
-    public function index(Request $request){
-        if($request->search != null || $request->genre_id){
-            $books = Book::with('author')
-                        ->with('publisher')
-                        ->with('genre')
-                        ->where('title', 'like', "%" . $request->search . "%")
-                        ->orWhere('genre_id', $request->genre_id)
-                        ->get();
-        }else{
-            $books = Book::with('author')
-                    ->with('publisher')
-                    ->with('genre')
-                    ->get();
-        }
-        $genres = Genre::all();
-        return view('pages.books.index', compact('books', 'genres'));
+    // public function index(Request $request){
+    //     if($request->search != null || $request->genre_id){
+    //         $books = Book::with('author')
+    //                     ->with('publisher')
+    //                     ->with('genre')
+    //                     ->where('title', 'like', "%" . $request->search . "%")
+    //                     ->orWhere('genre_id', $request->genre_id)
+    //                     ->get();
+    //     }else{
+    //         $books = Book::with('author')
+    //                 ->with('publisher')
+    //                 ->with('genre')
+    //                 ->get();
+    //     }
+    //     $genres = Genre::all();
+    //     return view('pages.books.index', compact('books', 'genres'));
+    // }
+
+    public function index(Request $request)
+    {
+        // if ($request->search != null || $request->genre_id) {
+        //     $books = Book::with('author')
+        //         ->with('publisher')
+        //         ->with('genre')
+        //         ->where('title', 'like', "%" . $request->search . "%")
+        //         ->orWhere('genre_id', $request->genre_id)
+        //         ->get();
+        // } else {
+        //     $books = Book::with('author')
+        //         ->with('publisher')
+        //         ->with('genre')
+        //         ->get();
+        // }
+        // $genres = Genre::all();
+        return view('pages.landing.index');
     }
 
-    public function show($id){
+    public function show($id)
+    {
         $books = Book::where('id', $id)->first();
         $customer = Customer::where('user_id', auth()->user()->id)->first();
         return view('pages.books.show', compact('books', 'customer'));

@@ -18,9 +18,9 @@
     src: url('./../font/Poppins-Medium.ttf');
 }
 
-:root{
-    --primary-color: #54a591;
-    --secondary-color: #48d1af;
+:root {
+    --primary-color: #000000;
+    --secondary-color: #000000;
     --light: #fff;
     --transparent: transparent;
     --dark: #242424;
@@ -38,58 +38,59 @@
     --bold: 'Poppins-bold';
 }
 
-body{
+body {
     font-family: 'Poppins-regular' !important;
     font-size: 12px;
 }
 
-.fixed{
+.fixed {
     position: fixed !important;
 }
 
-.nav{
+.nav {
     height: 80px !important;
     width: 100%;
     background-color: var(--transparent);
     z-index: -2;
 }
 
-nav .toggle{
-	background: var(--light);
-	width: 5%;
-	padding: 10px;
-	display: none;
+nav .toggle {
+    background: var(--light);
+    width: 5%;
+    padding: 10px;
+    display: none;
 }
-nav .toggle .bar{
-	border: 1px solid var(--dark);
-	margin: 5px;
+
+nav .toggle .bar {
+    border: 1px solid var(--dark);
+    margin: 5px;
     width: 80px;
 }
 
-.actived{
+.actived {
     color: var(--primary-color) !important;
     font-family: var(--regular);
 }
 
-.nav-item{
+.nav-item {
     padding: 10px 0px !important;
 }
 
-.nav-link{
+.nav-link {
     transition: .3s;
 }
 
-.nav-link:hover{
+.nav-link:hover {
     color: var(--primary-color) !important;
 }
 
-.brand-img{
+.brand-img {
     width: 100px !important;
     padding: 15px 0px;
     margin-left: 130px;
 }
 
-.brand-var{
+.brand-var {
     width: 100px !important;
     padding: 15px 0px;
     margin-left: 130px;
@@ -105,7 +106,7 @@ nav .toggle .bar{
 } */
 
 /* BANNER */
-.main-top{
+.main-top {
     /* background: var(--bg-right-illustrator); */
     width: 100%;
     background-position: center;
@@ -114,7 +115,7 @@ nav .toggle .bar{
     height: auto;
 }
 
-.main-top-mitra{
+.main-top-mitra {
     background: var(--transparent);
     width: 100%;
     background-position: center;
@@ -123,7 +124,7 @@ nav .toggle .bar{
     height: auto;
 }
 
-.main-banner{
+.main-banner {
     background: var(--transparent);
     width: 100%;
     background-position: center;
@@ -132,7 +133,7 @@ nav .toggle .bar{
     height: 100vh;
 }
 
-.left-banner{
+.left-banner {
     float: left;
     background-color: var(--transparent);
     height: 100vh;
@@ -140,7 +141,7 @@ nav .toggle .bar{
     margin-left: 150px;
 }
 
-.right-banner{
+.right-banner {
     float: right;
     background-color: var(--transparent);
     height: 100vh;
@@ -148,56 +149,58 @@ nav .toggle .bar{
     margin-right: 150px;
 }
 
-.banner-img{
+.banner-img {
     width: 100%;
 }
 
-.main-banner .left-banner h1{
+.main-banner .left-banner h1 {
     font-family: var(--bold);
     color: var(--dark);
 }
 
-.main-banner .left-banner p{
+.main-banner .left-banner p {
     color: var(--subtitle-color);
 }
+
 /* END BANNER */
 
 /* SERVICES */
-.main-services{
+.main-services {
     background-color: var(--transparent);
     width: 100%;
     height: 100vh;
 }
 
-.services{
+.services {
     height: auto;
     width: 100%;
     background-color: var(--transparent);
     z-index: -1;
 }
 
-.link-services{
+.link-services {
     text-decoration: none;
 }
 
-.link-services:hover{
+.link-services:hover {
     text-decoration: none;
 }
 
-.card{
+.card {
     transition: .5s;
     box-shadow: 2px 3px 4px #ddd !important;
 }
 
-.card:hover{
+.card:hover {
     /* background-color: var(--primary-color); */
     box-shadow: 8px 10px 15px #c0c0c075;
 }
+
 /* END SERVICES */
 
 
 /* PACKAGES */
-.packages{
+.packages {
     width: 100%;
     height: auto;
     background-color: #fff;
@@ -206,13 +209,13 @@ nav .toggle .bar{
 /* END PACKAGES */
 
 /* ABOUT */
-.teori{
+.teori {
     width: 100%;
     height: 100vh;
     background-color: var(--transparent);
 }
 
-.left-teori{
+.left-teori {
     float: left;
     background-color: var(--transparent);
     height: auto;
@@ -220,7 +223,7 @@ nav .toggle .bar{
     margin-left: 150px;
 }
 
-.right-teori{
+.right-teori {
     float: right;
     background-color: var(--transparent);
     height: auto;
@@ -228,13 +231,14 @@ nav .toggle .bar{
     margin-right: 150px;
 }
 
-.teori-img{
+.teori-img {
     width: 80%;
 }
+
 /* END ABOUT */
 
 /* TEAM */
-.main-bottom{
+.main-bottom {
     /* background: var(--bg-left-illustrator); */
     width: 100%;
     background-position: center;
@@ -243,36 +247,37 @@ nav .toggle .bar{
     /* height: 200vh; */
 }
 
-.main-team{
+.main-team {
     width: 100%;
     height: auto;
     background-color: var(--transparent);
 }
 
-.img-circle{
+.img-circle {
     border-radius: 50%;
     height: 180px;
     width: 180px;
     margin: 25px 0px 10px 0px;
 }
 
-.link-team{
+.link-team {
     text-decoration: none;
 }
 
-.team h6{
+.team h6 {
     font-family: var(--semibold);
 }
+
 /* END TEAM */
 
 /* ABOUT */
-.about{
+.about {
     width: 100%;
     height: 100vh;
     background-color: var(--transparent);
 }
 
-.left-about{
+.left-about {
     float: left;
     background-color: var(--transparent);
     height: auto;
@@ -280,7 +285,7 @@ nav .toggle .bar{
     margin-left: 150px;
 }
 
-.right-about{
+.right-about {
     float: right;
     background-color: var(--transparent);
     height: auto;
@@ -288,20 +293,21 @@ nav .toggle .bar{
     margin-right: 150px;
 }
 
-.about-img{
+.about-img {
     width: 80%;
     margin-top: 0px;
 }
+
 /* END ABOUT */
 
 /* MEMBER */
-.main-member{
+.main-member {
     width: 100%;
     height: auto;
     background-color: var(--transparent);
 }
 
-.membership{
+.membership {
     border-radius: 10px;
     width: 100%;
     margin: 25px 0px 10px 0px;
@@ -310,94 +316,96 @@ nav .toggle .bar{
     transition: .5s;
 }
 
-.membership:hover{
+.membership:hover {
     box-shadow: 3px 4px 5px #aaa;
 }
 
-.link-member{
+.link-member {
     text-decoration: none;
 }
 
-.member h6{
+.member h6 {
     font-family: var(--semibold);
 }
+
 /* END MEMBER */
 
 /* FOOTER */
-footer{
+footer {
     width: 100%;
     height: 80px;
     background-color: var(--transparent);
     /* background-color: #eee; */
 }
 
-footer p{
+footer p {
     padding: 30px 0px;
     font-family: var(--semibold);
 }
+
 /* END FOOTER */
 
 /* Additional */
-.mt-10{
+.mt-10 {
     margin-top: -100px;
 }
 
-.mt-15{
+.mt-15 {
     margin-top: -150px;
 }
 
-.mt-20{
+.mt-20 {
     margin-top: -200px;
 }
 
-.mb-10{
+.mb-10 {
     margin-top: 100px;
 }
 
-.mb-15{
+.mb-15 {
     margin-top: 150px;
 }
 
-.mb-20{
+.mb-20 {
     margin-top: 200px;
 }
 
-.pl-15{
+.pl-15 {
     padding-left: 150px !important;
 }
 
-.pl-10{
+.pl-10 {
     padding-left: 130px !important;
 }
 
-.pl-5{
+.pl-5 {
     padding-left: 50px !important;
 }
 
-.pr-15{
+.pr-15 {
     padding-right: 150px !important;
 }
 
-li{
+li {
     margin: 0px 40px 0px 0px !important;
 }
 
-li a{
+li a {
     color: var(--dark) !important;
 }
 
-.title-head{
+.title-head {
     color: var(--dark);
     font-family: var(--bold);
 }
 
-.subtitle{
+.subtitle {
     color: var(--subtitle-color);
     font-family: var(--regular);
     font-size: 10pt;
 }
 
-.row{
+.row {
     margin-left: 0 !important;
     margin-right: 0 !important;
 }
@@ -406,7 +414,7 @@ li a{
 
 /* Button */
 
-.btn-app{
+.btn-app {
     border-radius: 5px !important;
     color: var(--light) !important;
     background-color: var(--primary-color);
@@ -416,11 +424,11 @@ li a{
     font-family: 'Poppins-medium';
 }
 
-.btn-width-same{
+.btn-width-same {
     width: 150px;
 }
 
-.btn-contact{
+.btn-contact {
     font-family: var(--bold);
     width: 300px;
     text-transform: uppercase;
@@ -428,64 +436,64 @@ li a{
     font-size: 11pt;
 }
 
-.footer{
+.footer {
     background-color: var(--light);
     width: 100%;
     height: 80px;
 }
 
-.footer p{
+.footer p {
     padding-top: 30px;
 }
 
-.bottom-5{
+.bottom-5 {
     margin-bottom: 3rem !important;
 }
 
 @media screen and (max-width: 980px) {
-    .brand-img{
+    .brand-img {
         width: 100px !important;
         padding: 15px 0px;
         margin-left: -250px;
     }
 
-    .navbar{
+    .navbar {
         width: 100% !important;
     }
 
-    .nav{
+    .nav {
         height: 80px !important;
         width: 100%;
         background-color: var(--transparent);
     }
 
-    .pl-10{
+    .pl-10 {
         padding-right: none !important;
     }
 
-    nav .toggle{
-		display: block;
-		width: 6%;
-		background: none;
-		float: right;
+    nav .toggle {
+        display: block;
+        width: 6%;
+        background: none;
+        float: right;
         margin-right: 50px;
-	}
+    }
 
-    nav .toggle .bar{
-		width: 100%;
-	    border: 1px solid #000;
-	}
+    nav .toggle .bar {
+        width: 100%;
+        border: 1px solid #000;
+    }
 
-    #navbarSupportedContent{
-		width: 100%;
-		/* position: absolute; */
-		background: #fff;
-		display: none;
-		top: 40px;
-	}
+    #navbarSupportedContent {
+        width: 100%;
+        /* position: absolute; */
+        background: #fff;
+        display: none;
+        top: 40px;
+    }
 
     /* MAIN */
-    .main-top{
+    .main-top {
         /* background: var(--bg-right-illustrator); */
         width: 100%;
         background-position: center;
@@ -494,8 +502,8 @@ li a{
         height: 75vh;
         margin: 0px;
     }
-    
-    .main-banner{
+
+    .main-banner {
         background: var(--transparent);
         width: 100%;
         background-position: center;
@@ -504,7 +512,7 @@ li a{
         height: auto;
     }
 
-    .left-banner{
+    .left-banner {
         float: left;
         background-color: var(--transparent);
         height: 40vh;
@@ -512,7 +520,7 @@ li a{
         margin-left: 50px;
     }
 
-    .right-banner{
+    .right-banner {
         float: right;
         background-color: var(--transparent);
         height: 40vh;
@@ -520,105 +528,106 @@ li a{
         margin-right: 60px;
     }
 
-    .banner-img{
+    .banner-img {
         width: 100%;
     }
 
-    .left-banner h1{
+    .left-banner h1 {
         font-size: 18pt;
         padding: 0px 20px;
     }
 
-    .left-banner p{
+    .left-banner p {
         font-size: 10pt;
         padding: 0px 20px;
     }
 
-    .text-left{
+    .text-left {
         padding: 0px 20px;
     }
 
-    .mb-15{
+    .mb-15 {
         margin-top: 100px;
     }
-    
+
     /* SERVICES */
-    .main-services{
+    .main-services {
         background-color: var(--transparent);
         width: 100%;
         height: auto;
     }
 
-    .services{
+    .services {
         height: auto;
         width: 100%;
         background-color: var(--transparent);
         /* z-index: -1; */
     }
 
-    .card h5{
+    .card h5 {
         font-size: 12pt;
     }
 
-    .card img{
+    .card img {
         width: 60px;
         height: 60px;
 
     }
 
-    .card p{
+    .card p {
         font-size: 9pt;
     }
 
-    .link-services{
+    .link-services {
         text-decoration: none;
     }
 
-    .link-services:hover{
+    .link-services:hover {
         text-decoration: none;
     }
 
-    .card{
+    .card {
         transition: .5s;
         margin: 5px 0px;
     }
 
-    .card:hover{
+    .card:hover {
         /* background-color: var(--primary-color); */
         box-shadow: 8px 10px 15px #c0c0c075;
     }
+
     /* END SERVICES */
 
     /* PACKAGES */
-    .teori{
+    .teori {
         width: 100%;
         height: 50vh;
         background-color: var(--transparent);
     }
 
-    .teori .left-teori{
+    .teori .left-teori {
         width: 40%;
         margin-left: 50px;
     }
 
-    .teori .left-teori img{
+    .teori .left-teori img {
         margin-top: 50px;
         width: 100%;
     }
-    
-    .teori .right-teori{
+
+    .teori .right-teori {
         width: 45%;
         margin-right: 50px;
     }
 
-    .table td{
+    .table td {
         font-size: 9pt;
     }
 
     /* END PACKAGES */
 
     /* TEAM */
-    .main-bottom{
+    .main-bottom {
         /* background: var(--bg-left-illustrator); */
         width: 100%;
         background-position: center;
@@ -627,36 +636,37 @@ li a{
         /* height: 200vh; */
     }
 
-    .main-team{
+    .main-team {
         width: 100%;
         height: auto;
         background-color: var(--transparent);
     }
 
-    .img-circle{
+    .img-circle {
         border-radius: 50%;
         height: 200px;
         width: 200px;
         margin: 25px 0px 10px 0px;
     }
 
-    .team h6{
+    .team h6 {
         font-family: var(--semibold);
     }
 
-    .team p{
+    .team p {
         font-size: 9pt;
     }
+
     /* END TEAM */
 
     /* ABOUT */
-    .about{
+    .about {
         width: 100%;
         height: 40vh;
         background-color: var(--transparent);
     }
 
-    .left-about{
+    .left-about {
         float: left;
         background-color: var(--transparent);
         height: auto;
@@ -664,7 +674,7 @@ li a{
         margin-left: 30px;
     }
 
-    .right-about{
+    .right-about {
         float: right;
         background-color: var(--transparent);
         height: auto;
@@ -672,45 +682,46 @@ li a{
         margin-right: 30px;
     }
 
-    .about-img{
+    .about-img {
         width: 100%;
         /* padding: 80px 0px; */
     }
 
-    .left-about h1{
+    .left-about h1 {
         font-size: 18pt;
         padding: 0px 20px;
     }
 
-    .left-about p{
+    .left-about p {
         font-size: 10pt;
         padding: 0px 20px;
         text-align: left;
     }
+
     /* END ABOUT */
 
     /* Additional */
-    .p-3{
+    .p-3 {
         margin-top: -25px;
     }
 
-    .pl-15{
+    .pl-15 {
         padding-left: 0px !important;
     }
-    
-    .pl-10{
+
+    .pl-10 {
         padding-left: 130px !important;
     }
-    
-    .pl-5{
+
+    .pl-5 {
         padding-left: 50px !important;
     }
-    
-    .pr-15{
+
+    .pr-15 {
         padding-right: 0px !important;
     }
 
-    .btn-app{
+    .btn-app {
         border-radius: 5px !important;
         color: var(--light) !important;
         background-color: var(--primary-color);
@@ -719,12 +730,12 @@ li a{
         /* height: 40px !important; */
         font-family: 'Poppins-medium';
     }
-    
-    .btn-width-same{
+
+    .btn-width-same {
         width: 120px;
     }
 
-    .btn-contact{
+    .btn-contact {
         font-family: var(--bold);
         width: 100%;
         text-transform: uppercase;
@@ -732,32 +743,32 @@ li a{
         font-size: 11pt;
     }
 
-    .title-head{
+    .title-head {
         color: var(--dark);
         font-family: var(--bold);
         font-size: 18pt;
     }
-    
-    .subtitle{
+
+    .subtitle {
         color: var(--subtitle-color);
         font-family: var(--regular);
         font-size: 10pt;
     }
 
-    .row{
+    .row {
         margin-left: 0 !important;
         margin-right: 0 !important;
     }
 
     /* End Additional */
 
-    footer{
+    footer {
         background-color: var(--transparent);
         width: 100%;
         height: 80px;
     }
-    
-    footer p{
+
+    footer p {
         padding-top: 15px;
         font-family: var(--medium) !important;
         font-size: 9pt !important;
@@ -766,50 +777,50 @@ li a{
 }
 
 
-@media screen and (max-width: 768px) { 
-    .brand-img{
+@media screen and (max-width: 768px) {
+    .brand-img {
         width: 100px !important;
         padding: 15px 0px;
         margin-left: -250px;
     }
 
-    .navbar{
+    .navbar {
         width: 100% !important;
     }
 
-    .nav{
+    .nav {
         height: 80px !important;
         width: 100%;
         background-color: var(--transparent);
     }
 
-    .pl-10{
+    .pl-10 {
         padding-right: none !important;
     }
 
-    nav .toggle{
-		display: block;
-		width: 6%;
-		background: none;
-		float: right;
+    nav .toggle {
+        display: block;
+        width: 6%;
+        background: none;
+        float: right;
         margin-right: 50px;
-	}
+    }
 
-    nav .toggle .bar{
-		width: 100%;
-	    border: 1px solid #000;
-	}
+    nav .toggle .bar {
+        width: 100%;
+        border: 1px solid #000;
+    }
 
-    #navbarSupportedContent{
-		width: 100%;
-		/* position: absolute; */
-		background: #fff;
-		display: none;
-		top: 40px;
-	}
+    #navbarSupportedContent {
+        width: 100%;
+        /* position: absolute; */
+        background: #fff;
+        display: none;
+        top: 40px;
+    }
 
     /* MAIN */
-    .main-top{
+    .main-top {
         /* background: var(--bg-right-illustrator); */
         width: 100%;
         background-position: center;
@@ -818,8 +829,8 @@ li a{
         height: 90vh;
         margin: 0px;
     }
-    
-    .main-banner{
+
+    .main-banner {
         background: var(--transparent);
         width: 100%;
         background-position: center;
@@ -828,7 +839,7 @@ li a{
         height: auto;
     }
 
-    .left-banner{
+    .left-banner {
         float: left;
         background-color: var(--transparent);
         height: 45vh;
@@ -836,7 +847,7 @@ li a{
         margin-left: 20px;
     }
 
-    .right-banner{
+    .right-banner {
         float: right;
         background-color: var(--transparent);
         height: 45vh;
@@ -844,105 +855,106 @@ li a{
         margin-right: 20px;
     }
 
-    .banner-img{
+    .banner-img {
         width: 100%;
     }
 
-    .left-banner h1{
+    .left-banner h1 {
         font-size: 18pt;
         padding: 0px 20px;
     }
 
-    .left-banner p{
+    .left-banner p {
         font-size: 10pt;
         padding: 0px 20px;
     }
 
-    .text-left{
+    .text-left {
         padding: 0px 20px;
     }
 
-    .mb-15{
+    .mb-15 {
         margin-top: 100px;
     }
-    
+
     /* SERVICES */
-    .main-services{
+    .main-services {
         background-color: var(--transparent);
         width: 100%;
         height: auto;
     }
 
-    .services{
+    .services {
         height: auto;
         width: 100%;
         background-color: var(--transparent);
         /* z-index: -1; */
     }
 
-    .card h5{
+    .card h5 {
         font-size: 12pt;
     }
 
-    .card img{
+    .card img {
         width: 60px;
         height: 60px;
 
     }
 
-    .card p{
+    .card p {
         font-size: 9pt;
     }
 
-    .link-services{
+    .link-services {
         text-decoration: none;
     }
 
-    .link-services:hover{
+    .link-services:hover {
         text-decoration: none;
     }
 
-    .card{
+    .card {
         transition: .5s;
         margin: 5px 0px;
     }
 
-    .card:hover{
+    .card:hover {
         /* background-color: var(--primary-color); */
         box-shadow: 8px 10px 15px #c0c0c075;
     }
+
     /* END SERVICES */
 
     /* PACKAGES */
-    .teori{
+    .teori {
         width: 100%;
         height: 60vh;
         background-color: var(--transparent);
     }
 
-    .teori .left-teori{
+    .teori .left-teori {
         width: 40%;
         margin-left: 50px;
     }
 
-    .teori .left-teori img{
+    .teori .left-teori img {
         margin-top: 50px;
         width: 100%;
     }
-    
-    .teori .right-teori{
+
+    .teori .right-teori {
         width: 45%;
         margin-right: 50px;
     }
 
-    .table td{
+    .table td {
         font-size: 9pt;
     }
 
     /* END PACKAGES */
 
     /* TEAM */
-    .main-bottom{
+    .main-bottom {
         /* background: var(--bg-left-illustrator); */
         width: 100%;
         background-position: center;
@@ -951,36 +963,37 @@ li a{
         /* height: 200vh; */
     }
 
-    .main-team{
+    .main-team {
         width: 100%;
         height: auto;
         background-color: var(--transparent);
     }
 
-    .img-circle{
+    .img-circle {
         border-radius: 50%;
         height: 200px;
         width: 200px;
         margin: 25px 0px 10px 0px;
     }
 
-    .team h6{
+    .team h6 {
         font-family: var(--semibold);
     }
 
-    .team p{
+    .team p {
         font-size: 9pt;
     }
+
     /* END TEAM */
 
     /* ABOUT */
-    .about{
+    .about {
         width: 100%;
         height: 60vh;
         background-color: var(--transparent);
     }
 
-    .left-about{
+    .left-about {
         float: left;
         background-color: var(--transparent);
         height: auto;
@@ -988,7 +1001,7 @@ li a{
         margin-left: 30px;
     }
 
-    .right-about{
+    .right-about {
         float: right;
         background-color: var(--transparent);
         height: auto;
@@ -996,45 +1009,46 @@ li a{
         margin-right: 30px;
     }
 
-    .about-img{
+    .about-img {
         width: 100%;
         padding: 80px 0px;
     }
 
-    .left-about h1{
+    .left-about h1 {
         font-size: 18pt;
         padding: 0px 20px;
     }
 
-    .left-about p{
+    .left-about p {
         font-size: 10pt;
         padding: 0px 20px;
         text-align: left;
     }
+
     /* END ABOUT */
 
     /* Additional */
-    .p-3{
+    .p-3 {
         margin-top: -25px;
     }
 
-    .pl-15{
+    .pl-15 {
         padding-left: 0px !important;
     }
-    
-    .pl-10{
+
+    .pl-10 {
         padding-left: 130px !important;
     }
-    
-    .pl-5{
+
+    .pl-5 {
         padding-left: 50px !important;
     }
-    
-    .pr-15{
+
+    .pr-15 {
         padding-right: 0px !important;
     }
 
-    .btn-app{
+    .btn-app {
         border-radius: 5px !important;
         color: var(--light) !important;
         background-color: var(--primary-color);
@@ -1043,12 +1057,12 @@ li a{
         /* height: 40px !important; */
         font-family: 'Poppins-medium';
     }
-    
-    .btn-width-same{
+
+    .btn-width-same {
         width: 120px;
     }
 
-    .btn-contact{
+    .btn-contact {
         font-family: var(--bold);
         width: 100%;
         text-transform: uppercase;
@@ -1056,32 +1070,32 @@ li a{
         font-size: 11pt;
     }
 
-    .title-head{
+    .title-head {
         color: var(--dark);
         font-family: var(--bold);
         font-size: 18pt;
     }
-    
-    .subtitle{
+
+    .subtitle {
         color: var(--subtitle-color);
         font-family: var(--regular);
         font-size: 10pt;
     }
 
-    .row{
+    .row {
         margin-left: 0 !important;
         margin-right: 0 !important;
     }
 
     /* End Additional */
 
-    footer{
+    footer {
         background-color: var(--transparent);
         width: 100%;
         height: 80px;
     }
-    
-    footer p{
+
+    footer p {
         padding-top: 15px;
         font-family: var(--medium) !important;
         font-size: 9pt !important;
@@ -1089,14 +1103,14 @@ li a{
     }
 }
 
-@media screen and (max-width: 460px) { 
-    .brand-img{
+@media screen and (max-width: 460px) {
+    .brand-img {
         width: 100px !important;
         padding: 15px 0px;
         margin-left: -120px;
     }
 
-    .brand-var{
+    .brand-var {
         width: 100px !important;
         padding: 15px 0px;
         margin-left: 50px;
@@ -1105,43 +1119,43 @@ li a{
         color: var(--primary-color);
     }
 
-    .navbar{
+    .navbar {
         width: 100% !important;
     }
 
-    .nav{
+    .nav {
         height: 80px !important;
         width: 100%;
         background-color: var(--transparent);
     }
 
-    .pl-10{
+    .pl-10 {
         padding-right: none !important;
     }
 
-    nav .toggle{
-		display: block;
-		width: 15%;
-		background: none;
-		float: right;
+    nav .toggle {
+        display: block;
+        width: 15%;
+        background: none;
+        float: right;
         margin-right: 10px;
-	}
+    }
 
-    nav .toggle .bar{
-		width: 100%;
-	    border: 1px solid #000;
-	}
+    nav .toggle .bar {
+        width: 100%;
+        border: 1px solid #000;
+    }
 
-    #navbarSupportedContent{
-		width: 100%;
-		/* position: absolute; */
-		background: #fff;
-		display: none;
-		top: 40px;
-	}
+    #navbarSupportedContent {
+        width: 100%;
+        /* position: absolute; */
+        background: #fff;
+        display: none;
+        top: 40px;
+    }
 
     /* MAIN */
-    .main-top{
+    .main-top {
         /* background: var(--bg-m-left-illustrator); */
         width: 100%;
         background-position: center;
@@ -1150,8 +1164,8 @@ li a{
         height: auto;
         margin: 0px;
     }
-    
-    .main-banner{
+
+    .main-banner {
         background: var(--transparent);
         width: 100%;
         background-position: center;
@@ -1160,7 +1174,7 @@ li a{
         height: auto;
     }
 
-    .left-banner{
+    .left-banner {
         float: left;
         background-color: var(--transparent);
         height: 70vh;
@@ -1168,90 +1182,92 @@ li a{
         margin-left: 0px;
     }
 
-    .right-banner{
+    .right-banner {
         display: none;
     }
 
-    .left-banner h1{
+    .left-banner h1 {
         font-size: 18pt;
         padding: 0px 30px;
     }
 
-    .left-banner p{
+    .left-banner p {
         font-size: 10pt;
         padding: 0px 30px;
     }
 
-    .text-left{
+    .text-left {
         padding: 0px 30px;
     }
 
-    .mb-15{
+    .mb-15 {
         margin-top: 120px;
     }
-    
+
     /* SERVICES */
-    .main-services{
+    .main-services {
         background-color: var(--transparent);
         width: 100%;
         height: auto;
     }
 
-    .services{
+    .services {
         height: auto;
         width: 100%;
         background-color: var(--transparent);
         /* z-index: -1; */
     }
 
-    .link-services{
+    .link-services {
         text-decoration: none;
     }
 
-    .link-services:hover{
+    .link-services:hover {
         text-decoration: none;
     }
 
-    .card{
+    .card {
         transition: .5s;
         margin: 5px 0px;
     }
 
-    .card:hover{
+    .card:hover {
         /* background-color: var(--primary-color); */
         box-shadow: 8px 10px 15px #c0c0c075;
     }
+
     /* END SERVICES */
 
     /* Left teori */
-    .teori{
+    .teori {
         height: 110vh;
         width: 100%;
     }
 
-    .teori .left-teori{
+    .teori .left-teori {
         width: 100%;
         margin-left: 0px;
     }
 
-    .teori .right-teori{
+    .teori .right-teori {
         width: 100%;
         margin-right: 0px;
     }
 
-    .teori .right-teori .item-teori{
+    .teori .right-teori .item-teori {
         margin: 20px;
     }
+
     /* end Left teori */
 
     /* ABOUT */
-    .about{
+    .about {
         width: 100%;
         height: 85vh;
         background-color: var(--transparent);
     }
 
-    .left-about{
+    .left-about {
         float: left;
         background-color: var(--transparent);
         height: auto;
@@ -1259,44 +1275,45 @@ li a{
         margin-left: 0px;
     }
 
-    .left-about h1{
+    .left-about h1 {
         font-size: 18pt;
         padding: 0px 20px;
     }
 
-    .left-about p{
+    .left-about p {
         font-size: 10pt;
         padding: 0px 20px;
         text-align: center;
     }
 
-    .right-about{
+    .right-about {
         display: none;
     }
+
     /* END ABOUT */
 
     /* Additional */
-    .p-3{
+    .p-3 {
         margin-top: -25px;
     }
 
-    .pl-15{
+    .pl-15 {
         padding-left: 0px !important;
     }
-    
-    .pl-10{
+
+    .pl-10 {
         padding-left: 130px !important;
     }
-    
-    .pl-5{
+
+    .pl-5 {
         padding-left: 50px !important;
     }
-    
-    .pr-15{
+
+    .pr-15 {
         padding-right: 0px !important;
     }
 
-    .btn-contact{
+    .btn-contact {
         font-family: var(--bold);
         width: 100%;
         text-transform: uppercase;
@@ -1304,32 +1321,32 @@ li a{
         font-size: 11pt;
     }
 
-    .title-head{
+    .title-head {
         color: var(--dark);
         font-family: var(--bold);
         font-size: 18pt;
     }
-    
-    .subtitle{
+
+    .subtitle {
         color: var(--subtitle-color);
         font-family: var(--regular);
         font-size: 10pt;
     }
 
-    .row{
+    .row {
         margin-left: 0 !important;
         margin-right: 0 !important;
     }
 
     /* End Additional */
 
-    footer{
+    footer {
         background-color: var(--transparent);
         width: 100%;
         height: 80px;
     }
-    
-    footer p{
+
+    footer p {
         padding-top: 15px;
         font-family: var(--medium) !important;
         font-size: 9pt !important;

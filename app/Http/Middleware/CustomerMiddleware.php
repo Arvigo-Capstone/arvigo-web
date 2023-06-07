@@ -17,7 +17,7 @@ class CustomerMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->role == 'customer'){
+        if (Auth::user()->role == 'customer') {
             return $next($request);
         } else {
             return redirect('/');

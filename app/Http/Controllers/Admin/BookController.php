@@ -10,6 +10,7 @@ use App\Models\Publisher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Google\Cloud\Storage\StorageClient;
+use GuzzleHttp\Client;
 
 class BookController extends Controller
 {
@@ -20,12 +21,22 @@ class BookController extends Controller
      */
     public function index()
     {
-        $title = 'Books';
-        $books = Book::with('author')
-                    ->with('publisher')
-                    ->with('genre')
-                    ->get();
-        return view('admin.books.index', compact('books', 'title'));
+        $title = 'Products of Sunglasses';
+        // $users = Admin::with('user')->get();
+        // return view('admin.users.index', compact('users', 'title'));
+
+        $http = new Client();
+        // $authors = Author::withCount('book')->get();
+        // return view('admin.authors.index', compact('authors', 'title'));
+        $data = $http->request('GET', 'https://api.arvigo.site/v1/products/initials/category/1', [
+            'headers' => [
+                'Authorization' => 'Bearer ' . env('HEADER_TOKEN', "somedefaultvalue"),
+            ],
+        ]);
+        $getData = (string) $data->getBody();
+        $response = json_decode($getData, true);
+        // $getData = $data->getContents();
+        return view('admin.books.index', compact('response', 'title'));
     }
 
     /**
@@ -35,15 +46,20 @@ class BookController extends Controller
      */
     public function create()
     {
-        $title = 'Books';
-        $authors = Author::all();
-        $publishers = Publisher::all();
-        $genres = Genre::all();
+        $title = 'Sunglasses Brand';
+        $http = new Client();
+
+        $brandData = $http->request('GET', 'https://api.arvigo.site/v1/brands', [
+            'headers' => [
+                'Authorization' => 'Bearer ' . env('HEADER_TOKEN', "somedefaultvalue"),
+            ],
+        ]);
+        $getBrandData = (string) $brandData->getBody();
+        $responseBrandData = json_decode($getBrandData, true);
+
         return view('admin.books.create', [
             'title' => $title,
-            'authors' => $authors,
-            'publishers' => $publishers,
-            'genres' => $genres,
+            'brandData' => $responseBrandData,
         ]);
     }
 
@@ -55,56 +71,78 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
+        $getAllData = $request->all();
+        $photos = $getAllData['images'];
+        $varianData = json_encode([
+            [
+                "name" => "Hitam",
+                "link_ar" => $request->get('hitam'),
+                "is_primary_variant" => true
+            ],
+            [
+                "name" => "Pink",
+                "link_ar" => $request->get('pink'),
+                "is_primary_variant" => false
+            ],
+            [
+                "name" => "Emas",
+                "link_ar" => $request->get('emas'),
+                "is_primary_variant" => false
+            ],
+            [
+                "name" => "Silver",
+                "link_ar" => $request->get('silver'),
+                "is_primary_variant" => false
+            ]
+        ], JSON_UNESCAPED_SLASHES);
 
-        // ddd($request->all());
-        $request->validate([
-            'author_id' => 'required',
-            'publisher_id' => 'required',
-            'genre_id' => 'required',
-            'title' => 'required|string|max:255',
-            'publish_date' => 'required',
-            'book_pages' => 'required',
-            'description' => 'required|string',
-            'rating' => 'required',
-            'price' => 'required',
-            'cover_image' => 'required',
-        ]);
+        $http = new Client();
 
-        if($request->file('cover_image')){
-            $cover_image = $request->file('cover_image')->store('book', 'public');
+        $getProductData = [
+            [
+                'name'     => 'name',
+                'contents' => $request->get('name'),
+            ],
+            [
+                'name' => 'description',
+                'contents' => $request->get('description'),
+            ],
+            [
+                'name' => 'brand_id',
+                'contents' => $request->get('brand'),
+            ],
+            [
+                'name' => 'category_id',
+                'contents' => '1',
+            ],
+            [
+                'name' => 'detail_product_tags',
+                'contents' => implode(',', (array) $request['tags']),
+            ],
+            [
+                'name'     => 'detail_product_variants',
+                'contents' => $varianData
+            ],
+        ];
+
+        foreach ($photos as $k =>  $file) {
+            if (file_exists($file)) {
+                $extension = $file->getClientOriginalExtension();
+                array_push($getProductData, [
+                    'name' => 'images',
+                    'contents' => fopen($file->getRealPath(), 'r'),
+                    'filename' => 'deepAr.' . "." . $extension
+                ]);
+            }
         }
 
-        $googleConfigFile = file_get_contents('https://storage.googleapis.com/laravel-bookstore-app/hairullah-project-56431d962189.json');
-        $storage = new StorageClient([
-            'keyFile' => json_decode($googleConfigFile, true)
+        $response = $http->request('POST', 'https://api.arvigo.site/v1/products/initials', [
+            'headers' => [
+                'Authorization' => 'Bearer ' . env('HEADER_TOKEN', "somedefaultvalue"),
+            ],
+            'multipart' => $getProductData
         ]);
 
-        $storageBucketName = config('googlecloud.storage_bucket');
-        $bucket = $storage->bucket($storageBucketName);
-        $fileSource = $cover_image;
-        $googleCloudStoragePath = $cover_image;
-        /* Upload a file to the bucket.
-        Using Predefined ACLs to manage object permissions, you may
-        upload a file and give read access to anyone with the URL.*/
-        $bucket->upload($fileSource, [
-        // 'predefinedAcl' => 'publicRead',
-            'name' => $googleCloudStoragePath
-        ]);
-
-        Book::create([
-            'author_id' => $request->author_id,
-            'publisher_id' => $request->publisher_id,
-            'genre_id' => $request->genre_id,
-            'title' => $request->title,
-            'publish_date' => $request->publish_date,
-            'book_pages' => $request->book_pages,
-            'description' => $request->description,
-            'rating' => $request->rating,
-            'price' => $request->price,
-            'cover_image' => $cover_image,
-            'url_cloud' => 'https://storage.cloud.google.com/'.$storageBucketName.'/'.$googleCloudStoragePath
-        ]);
-        
         return redirect('/u/book')->with('success', "Data berhasil ditambahkan");
     }
 
@@ -135,6 +173,22 @@ class BookController extends Controller
         $genres = Genre::all();
         $books = Book::where('id', $id)->first();
         return view('admin.books.edit', compact('title', 'books', 'authors', 'publishers', 'genres'));
+
+        $title = 'Sunglasses Brand';
+        $http = new Client();
+
+        $brandData = $http->request('GET', 'https://api.arvigo.site/v1/brands', [
+            'headers' => [
+                'Authorization' => 'Bearer ' . env('HEADER_TOKEN', "somedefaultvalue"),
+            ],
+        ]);
+        $getBrandData = (string) $brandData->getBody();
+        $responseBrandData = json_decode($getBrandData, true);
+
+        return view('admin.books.edit', [
+            'title' => $title,
+            'brandData' => $responseBrandData,
+        ]);
     }
 
     /**
@@ -161,13 +215,13 @@ class BookController extends Controller
             'cover_image' => 'required',
         ]);
 
-        if($book->cover_image && file_exists(storage_path('app/public/'. $book->cover_image))){
+        if ($book->cover_image && file_exists(storage_path('app/public/' . $book->cover_image))) {
             Storage::delete(['public/', $book->cover_image]);
         }
 
         $cover_image = null;
 
-        if($request->cover_image != null){
+        if ($request->cover_image != null) {
             $cover_image = $request->file('cover_image')->store('book', 'public');
         }
 
@@ -183,7 +237,7 @@ class BookController extends Controller
             'price' => $request->price,
             'cover_image' => $cover_image
         ]);
-        
+
         return redirect('/u/book')->with('success', "Data berhasil diubah");
     }
 

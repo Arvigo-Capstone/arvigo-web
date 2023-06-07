@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use GuzzleHttp\Client;
 
 class AdminMiddleware
 {
@@ -17,7 +18,16 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->role == 'admin'){
+        // $http = new Client();
+        // $data = $http->request('GET', 'https://api.arvigo.site/v1/auth/login', [
+        //     'headers' => [
+        //         'Authorization' => 'Bearer ' . env('HEADER_TOKEN', "somedefaultvalue"),
+        //     ],
+        // ]);
+        // $getData = (string) $data->getBody();
+        // $response = json_decode($getData, true);
+
+        if (Auth::user()->role == 'admin') {
             return $next($request);
         } else {
             return redirect('/');

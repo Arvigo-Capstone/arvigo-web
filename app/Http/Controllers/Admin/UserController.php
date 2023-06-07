@@ -8,6 +8,7 @@ use App\Models\Customer;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use GuzzleHttp\Client;
 
 class UserController extends Controller
 {
@@ -20,23 +21,47 @@ class UserController extends Controller
             'address' => NULL,
             'zip_code' => NULL
         ]);
-        
+
         return redirect()->to('/');
     }
 
-    public function get_admin(){
+    public function get_admin()
+    {
         $title = 'Admins';
-        $users = Admin::with('user')->get();
-        return view('admin.users.index', compact('users', 'title'));
+        // $users = Admin::with('user')->get();
+        // return view('admin.users.index', compact('users', 'title'));
+
+        $http = new Client();
+        $title = 'Users';
+        // $authors = Author::withCount('book')->get();
+        // return view('admin.authors.index', compact('authors', 'title'));
+        $data = $http->request('GET', 'https://api.arvigo.site/v1/users/user-list', [
+            'headers' => [
+                'Authorization' => 'Bearer ' . env('HEADER_TOKEN', "somedefaultvalue"),
+            ],
+        ]);
+        $getData = (string) $data->getBody();
+        $response = json_decode($getData, true);
+        // $getData = $data->getContents();
+        return view('admin.users.index', compact('response', 'title'));
     }
 
-    public function get_customer(){
-        $title = 'Customers';
-        $users = Customer::with('user')->get();
-        return view('admin.users.index', compact('users', 'title'));
+    public function get_customer()
+    {
+        $http = new Client();
+        $title = 'Partners';
+        $data = $http->request('GET', 'https://api.arvigo.site/v1/users/partner-list', [
+            'headers' => [
+                'Authorization' => 'Bearer ' . env('HEADER_TOKEN', "somedefaultvalue"),
+            ],
+        ]);
+        $getData = (string) $data->getBody();
+        $response = json_decode($getData, true);
+        return view('admin.users.index', compact('response', 'title'));
     }
 
-    public function create(){
+    public function create()
+    {
         $title = 'Admins';
         return view('admin.users.create', compact('title'));
     }
@@ -60,7 +85,7 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
             'role' => $request->role,
         ]);
-        
+
         $user = User::latest()->first();
 
         Admin::create([
@@ -71,7 +96,7 @@ class UserController extends Controller
             'address' => $request->address,
             'zip_code' => $request->zip_code,
         ]);
-        
+
         return redirect('/u/admins')->with('success', "Data berhasil diubah");
     }
 
@@ -104,21 +129,21 @@ class UserController extends Controller
         User::where('id', $id)->update([
             'role' => $request->role,
         ]);
-        
+
         return redirect('/u/admins')->with('success', "Data berhasil diubah");
     }
 
     public function destroy($id)
     {
         $user = User::where('id', $id)->first();
-        if(Admin::where('user_id', $id)->first()){
+        if (Admin::where('user_id', $id)->first()) {
             Admin::where('user_id', $id)->delete();
             // dd('hapus admin');
-        }else if(Customer::where('user_id', $id)->first()){
+        } else if (Customer::where('user_id', $id)->first()) {
             Customer::where('user_id', $id)->delete();
             // dd('hapus customer');
         }
         User::where('id', $id)->delete();
-        return redirect('/u'.'/'.$user->role.'s')->with('success', "Data berhasil dihapus");
+        return redirect('/u' . '/' . $user->role . 's')->with('success', "Data berhasil dihapus");
     }
 }

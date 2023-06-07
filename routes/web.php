@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AuthorController;
 use App\Http\Controllers\Admin\BookController;
+use App\Http\Controllers\Admin\Book2Controller;
 use App\Http\Controllers\Admin\GenreController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\PublisherController;
@@ -52,13 +53,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/', [UserBookController::class, 'index']);
 Route::get('/book', [UserBookController::class, 'index']);
 
-Route::middleware(['auth', 'isCustomer'])->group(function(){
-    Route::controller(UserController::class)->group(function(){
+Route::middleware(['auth', 'isCustomer'])->group(function () {
+    Route::controller(UserController::class)->group(function () {
         Route::get('/u/add_profile', 'add');
     });
 
     Route::get('/book/{id}/show', [UserBookController::class, 'show']);
-    
+
     Route::get('/cart/{id}/show', [UserCartController::class, 'index']);
     Route::post('/cart/{id}/add', [UserCartController::class, 'store']);
     Route::get('/cart/{id}/edit', [UserCartController::class, 'edit']);
@@ -79,40 +80,42 @@ Route::middleware(['auth', 'isCustomer'])->group(function(){
     Route::put('/user/change_password', [UserSettingController::class, 'update_password']);
 });
 
-Route::middleware(['auth', 'isAdmin'])->group(function(){
-    
-    Route::prefix('/u')->group(function(){
-        Route::controller(HomeController::class)->group(function(){
+Route::middleware(['auth', 'isAdmin'])->group(function () {
+
+    Route::prefix('/u')->group(function () {
+        Route::controller(HomeController::class)->group(function () {
             Route::get('dashboard', 'index');
             Route::put('update_profile', 'update_profile');
             Route::get('change_password', 'change_password');
             Route::put('update_password', 'update_password');
         });
 
-        Route::controller(UserController::class)->group(function(){
+        Route::controller(UserController::class)->group(function () {
             Route::get('add_profile', 'add');
-            
+
             Route::get('admins', 'get_admin');
             Route::post('admins', 'add_admin');
             Route::get('admins/{id}/edit', 'edit_admin');
             Route::put('admins/{id}', 'update_admin');
-            
+
             Route::get('customers', 'get_customer');
 
             Route::get('users/create', 'create');
             Route::post('users', 'store');
             Route::delete('users/{id}', 'destroy');
         });
-        
+
         Route::resource('author', AuthorController::class);
 
         Route::resource('publisher', PublisherController::class);
-        
+
         Route::resource('genre', GenreController::class);
-        
+
         Route::resource('book', BookController::class);
 
-        Route::controller(AdminTransactionController::class)->group(function(){
+        Route::resource('book2', Book2Controller::class);
+
+        Route::controller(AdminTransactionController::class)->group(function () {
             Route::get('/transaction', 'index');
             Route::get('/transaction/{id}/detail', 'detail');
             Route::get('/transaction/{id}/status', 'status');

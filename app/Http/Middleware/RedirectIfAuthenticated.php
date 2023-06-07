@@ -31,7 +31,7 @@ class RedirectIfAuthenticated
                         break;
                     default:
                         RouteServiceProvider::PROFILE;
-                    break;
+                        break;
                 }
             }
         }

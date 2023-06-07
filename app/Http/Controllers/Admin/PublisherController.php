@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Publisher;
 use Illuminate\Http\Request;
+use GuzzleHttp\Client;
 
 class PublisherController extends Controller
 {
@@ -15,9 +16,17 @@ class PublisherController extends Controller
      */
     public function index()
     {
-        $title = 'Publishers';
-        $publishers = Publisher::withCount('book')->get();
-        return view('admin.publishers.index', compact('publishers', 'title'));
+        $http = new Client();
+        $title = 'Category';
+        $data = $http->request('GET', 'https://api.arvigo.site/v1/categories', [
+            'headers' => [
+                'Authorization' => 'Bearer ' . env('HEADER_TOKEN', "somedefaultvalue"),
+            ],
+        ]);
+        $getData = (string) $data->getBody();
+        $response = json_decode($getData, true);
+        // $getData = $data->getContents();
+        return view('admin.publishers.index', compact('response', 'title'));
     }
 
     /**
@@ -46,7 +55,7 @@ class PublisherController extends Controller
         Publisher::create([
             'name' => $request->name
         ]);
-        
+
         return redirect('/u/publisher')->with('success', "Data berhasil ditambahkan");
     }
 
@@ -92,7 +101,7 @@ class PublisherController extends Controller
         Publisher::where('id', $id)->update([
             'name' => $request->name
         ]);
-        
+
         return redirect('/u/publisher')->with('success', "Data berhasil diubah");
     }
 
