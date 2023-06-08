@@ -475,6 +475,65 @@
             </div>
         </div>
 
+        <div class="container px-5 features-repsonsive">
+            <div class="row gx-5 align-items-center">
+                <div class="col-lg-4 order-lg-0">
+                    <!-- Features section device mockup-->
+                    <div class="features-device-mockup">
+                        {{-- <svg class="circle" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="circleGradient" gradientTransform="rotate(45)">
+                                    <stop class="gradient-start-color" offset="0%"></stop>
+                                    <stop class="gradient-end-color" offset="100%"></stop>
+                                </linearGradient>
+                            </defs>
+                            <circle cx="50" cy="50" r="50"></circle>
+                        </svg> --}}
+                        <svg class="shape-1 d-none d-sm-block" viewBox="0 0 240.83 240.83"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <rect x="-32.54" y="78.39" width="305.92" height="84.05" rx="42.03"
+                                transform="translate(120.42 -49.88) rotate(45)"></rect>
+                            <rect x="-32.54" y="78.39" width="305.92" height="84.05" rx="42.03"
+                                transform="translate(-49.88 120.42) rotate(-45)"></rect>
+                        </svg><svg class="shape-2 d-none d-sm-block" viewBox="0 0 100 100"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="50"></circle>
+                        </svg>
+                        <div class="device-wrapper">
+                            <div class="device" data-device="iPhoneX" data-orientation="portrait"
+                                data-color="black">
+                                <div class="screen bg-black">
+                                    <!-- PUT CONTENTS HERE:-->
+                                    <!-- * * This can be a video, image, or just about anything else.-->
+                                    <!-- * * Set the max width of your media to 100% and the height to-->
+                                    <!-- * * 100% like the demo example below.-->
+                                    <video muted="muted" autoplay="" loop=""
+                                        style="max-width: 100%; height: 100%">
+                                        <source
+                                            src="https://storage.googleapis.com/arvigo-bucket/assets/demo-screen.mp4"
+                                            type="video/mp4" />
+                                    </video>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 order-lg-1 mb-5 mb-lg-0 phone-feature">
+                    <div class="">
+                        <h1 class="lh-1 mb-3 " id="judul">
+                            <spand class="bg-gradient-primary-to-secondary-text">
+                                Arvigo Link</spand>
+                        </h1>
+                        <p class="lead fw-normal text-muted mb-5 " style="padding-top: 10px">Tautkan Arvigo Link di
+                            toko e-commerce kamu, agar pelanggan dapat mencoba produk di Arvigo sesuai dengan produk
+                            yang kamu tawarkan dan tingkatkan kepuasan
+                            layanan kepada pelanggan di toko e-commerce kamu.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="container px-5">
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-4 order-lg-0">
@@ -522,12 +581,11 @@
                     <div class="phone-feature">
                         <h1 class="lh-1 mb-3 phone-feature " id="judul">
                             <spand class="bg-gradient-primary-to-secondary-text">
-                                Arvigo Link</spand>
+                                Arvigo Ads</spand>
                         </h1>
-                        <p class="lead fw-normal text-muted mb-5 " style="padding-top: 10px">Tautkan Arvigo Link di
-                            toko e-commerce kamu, agar pelanggan dapat mencoba produk di Arvigo sesuai dengan produk
-                            yang kamu tawarkan dan tingkatkan kepuasan
-                            layanan kepada pelanggan di toko e-commerce kamu.
+                        <p class="lead fw-normal text-muted mb-5 " style="padding-top: 10px">Arvigo akan membantu
+                            penjual untuk meningkatkan dan menarik lebih banyak konsumen untuk mencoba dan membeli
+                            produk penjual dengan Arvigo Ads.
                         </p>
                     </div>
                 </div>
@@ -543,7 +601,7 @@
                     <div class="col-xl-8">
                         <p class="text-white" style="font-size: calc(1.3rem + 0.6vw);">"Visi kami adalah menjadi
                             platform inovatif bagi semua UMKM
-                            untuk mencapai kepuasan pelanggan yang maksimal dalam mendapatkan produk terbaik"</p>
+                            untuk mencapai kepuasan pelanggan yang maksimal"</p>
                         {{-- <img src="https://storage.googleapis.com/arvigo-bucket/assets/tnw-logo.svg" alt="..."
                         style="height: 3rem" /> --}}
                     </div>
