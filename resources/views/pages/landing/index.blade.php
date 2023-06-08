@@ -641,7 +641,7 @@
                                 <div class="overlay"></div>
 
                                 <div class="card-image">
-                                    <img src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fHww&w=1000&q=80"
+                                    <img src="https://storage.googleapis.com/arvigo-bucket/team-photos/isar.png"
                                         alt="" class="card-img">
                                 </div>
                             </div>
@@ -660,7 +660,7 @@
                                 <span class="overlay"></span>
 
                                 <div class="card-image">
-                                    <img src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fHww&w=1000&q=80"
+                                    <img src="https://storage.googleapis.com/arvigo-bucket/team-photos/yusuf.png"
                                         alt="" class="card-img">
                                 </div>
                             </div>
@@ -677,7 +677,7 @@
                                 <span class="overlay"></span>
 
                                 <div class="card-image">
-                                    <img src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fHww&w=1000&q=80"
+                                    <img src="https://storage.googleapis.com/arvigo-bucket/team-photos/irfan.png"
                                         alt="" class="card-img">
                                 </div>
                             </div>
@@ -695,7 +695,7 @@
                                 <span class="overlay"></span>
 
                                 <div class="card-image">
-                                    <img src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fHww&w=1000&q=80"
+                                    <img src="https://storage.googleapis.com/arvigo-bucket/team-photos/martin.png"
                                         alt="" class="card-img">
                                 </div>
                             </div>
@@ -711,7 +711,7 @@
                             <div class="image-content">
                                 <span class="overlay"></span>
                                 <div class="card-image">
-                                    <img src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fHww&w=1000&q=80"
+                                    <img src="https://storage.googleapis.com/arvigo-bucket/team-photos/zafrizal.png"
                                         alt="" class="card-img">
                                 </div>
                             </div>
@@ -728,7 +728,7 @@
                                 <span class="overlay"></span>
 
                                 <div class="card-image">
-                                    <img src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fHww&w=1000&q=80"
+                                    <img src="https://storage.googleapis.com/arvigo-bucket/team-photos/andre.png"
                                         alt="" class="card-img">
                                 </div>
                             </div>
@@ -760,7 +760,7 @@
                             <div class="overlay"></div>
 
                             <div class="card-image">
-                                <img src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fHww&w=1000&q=80"
+                                <img src="https://storage.googleapis.com/arvigo-bucket/team-photos/zafrizal.png"
                                     alt="" class="card-img">
                             </div>
                         </div>
@@ -781,7 +781,7 @@
                             <div class="overlay"></div>
 
                             <div class="card-image">
-                                <img src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fHww&w=1000&q=80"
+                                <img src="https://storage.googleapis.com/arvigo-bucket/team-photos/andre.png"
                                     alt="" class="card-img">
                             </div>
                         </div>
@@ -802,7 +802,7 @@
                             <div class="overlay"></div>
 
                             <div class="card-image">
-                                <img src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fHww&w=1000&q=80"
+                                <img src="https://storage.googleapis.com/arvigo-bucket/team-photos/martin.png"
                                     alt="" class="card-img">
                             </div>
                         </div>
@@ -827,7 +827,7 @@
                             <div class="overlay"></div>
 
                             <div class="card-image">
-                                <img src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fHww&w=1000&q=80"
+                                <img src="https://storage.googleapis.com/arvigo-bucket/team-photos/irfan.png"
                                     alt="" class="card-img">
                             </div>
                         </div>
@@ -847,7 +847,7 @@
                             <div class="overlay"></div>
 
                             <div class="card-image">
-                                <img src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fHww&w=1000&q=80"
+                                <img src="https://storage.googleapis.com/arvigo-bucket/team-photos/yusuf.png"
                                     alt="" class="card-img">
                             </div>
                         </div>
@@ -866,7 +866,7 @@
                             <div class="overlay"></div>
 
                             <div class="card-image">
-                                <img src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fHww&w=1000&q=80"
+                                <img src="https://storage.googleapis.com/arvigo-bucket/team-photos/isar.png"
                                     alt="" class="card-img">
                             </div>
                         </div>

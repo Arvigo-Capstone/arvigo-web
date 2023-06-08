@@ -164,8 +164,8 @@ body {
   width: 100%;
   object-fit: cover;
   border-radius: 50%;
-  background: linear-gradient(white, white) padding-box,
-    linear-gradient(to right, #24C6DC 0%, #9e2fdd 51%, #6871e7 100%) border-box;
+  /* background: linear-gradient(white, white) padding-box,
+    linear-gradient(to right, #24C6DC 0%, #9e2fdd 51%, #6871e7 100%) border-box; */
   border-radius: 50em;
   border: 4px solid transparent;
 }
