@@ -24,7 +24,7 @@
                 <h5 class="m-0 font-weight-bold color-primary mb-2">Tabel Data {{ $title }}</h5>
                 <p class="mb-3 float-left">Halaman ini untuk pengelolaan {{ strtolower($title) }}</p>
 
-                <a href="/u/book/create" class="btn btn-primary py-2 px-3 fs-normal float-right mb-3 shadow-sm"><span
+                <a href="/u/book2/create" class="btn btn-primary py-2 px-3 fs-normal float-right mb-3 shadow-sm"><span
                         class="fas fa-user-plus"></span> Tambah Data</a>
 
                 <div class="table-responsive">

@@ -11,20 +11,20 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use PDF;
 
-class TransactionController extends Controller
+class Transaction2Controller extends Controller
 {
     public function index()
     {
-        $title = 'Users Transaction';
+        $title = 'Partners Transaction';
         $http = new Client();
-        $data = $http->request('GET', 'https://api.arvigo.site/v1/subscription/user', [
+        $data = $http->request('GET', 'https://api.arvigo.site/v1/subscription/merchant', [
             'headers' => [
                 'Authorization' => 'Bearer ' . env('HEADER_TOKEN', "somedefaultvalue"),
             ],
         ]);
         $getData = (string) $data->getBody();
         $response = json_decode($getData, true);
-        return view('admin.transactions.index', compact('response', 'title'));
+        return view('admin.transactions-2.index', compact('response', 'title'));
     }
 
     // public function detail($id)
@@ -41,16 +41,17 @@ class TransactionController extends Controller
     public function status($id)
     {
         $data = [
-            'status' => true
+            'status' => true,
+            'rejected_note' => 'nothing'
         ];
         $http = new Client();
-        $data = $http->request('PUT', 'https://api.arvigo.site/v1/subscription/user/verify/' . $id, [
+        $data = $http->request('PUT', 'https://api.arvigo.site/v1/subscription/merchant/verify/' . $id, [
             'headers' => [
                 'Authorization' => 'Bearer ' . env('HEADER_TOKEN', "somedefaultvalue"),
             ],
-            'json' => $data
+            'json' => $data,
         ]);
-        return redirect('/u/transaction')->with('success', "Data berhasil diubah pada " . Carbon::now());
+        return redirect('/u/transaction2')->with('success', "Data berhasil diubah pada " . Carbon::now());
     }
 
     // public function report()

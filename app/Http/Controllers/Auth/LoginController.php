@@ -33,7 +33,7 @@ class LoginController extends Controller
     $role = Auth::user()->role;
     switch ($role) {
       case 'admin':
-        return '/u/transaction';
+        return '/u/transaction3';
         break;
       default:
         return '/u/add_profile';

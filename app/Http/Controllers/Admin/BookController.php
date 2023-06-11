@@ -167,17 +167,25 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-        $title = 'Books';
-        $authors = Author::all();
-        $publishers = Publisher::all();
-        $genres = Genre::all();
-        $books = Book::where('id', $id)->first();
-        return view('admin.books.edit', compact('title', 'books', 'authors', 'publishers', 'genres'));
+        // $responseWithId = [];
+        $title = 'Products of Sunglasses';
+        // $users = Admin::with('user')->get();
+        // return view('admin.users.index', compact('users', 'title'));
 
-        $title = 'Sunglasses Brand';
         $http = new Client();
 
-        $brandData = $http->request('GET', 'https://api.arvigo.site/v1/brands', [
+        // $authors = Author::withCount('book')->get();
+        // return view('admin.authors.index', compact('authors', 'title'));
+        $data = $http->request('GET', 'https://api.arvigo.site/v1/products/initials/category/1', [
+            'headers' => [
+                'Authorization' => 'Bearer ' . env('HEADER_TOKEN', "somedefaultvalue"),
+            ],
+        ]);
+        $getData = (string) $data->getBody();
+        $response = json_decode($getData, true);
+
+
+        $brandData = $http->request('GET', 'https://api.arvigo.site/v1/products/initials/' . $id, [
             'headers' => [
                 'Authorization' => 'Bearer ' . env('HEADER_TOKEN', "somedefaultvalue"),
             ],
@@ -185,10 +193,19 @@ class BookController extends Controller
         $getBrandData = (string) $brandData->getBody();
         $responseBrandData = json_decode($getBrandData, true);
 
+        // foreach ($response as $item) {
+        //     if ($item['id'] === 1) {
+        //         $responseWithId[] = $item;
+        //     }
+        // }
+
         return view('admin.books.edit', [
             'title' => $title,
-            'brandData' => $responseBrandData,
+            'responseWithId' => $responseBrandData,
+            'response' => $response
         ]);
+
+        // return dd($responseBrandData);
     }
 
     /**

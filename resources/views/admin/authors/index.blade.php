@@ -33,18 +33,18 @@
                             <tr>
                                 <th class="text-center">NO</th>
                                 <th>Nama</th>
-                                <th class="text-center">Foto</th>
-                                <th class="text-center">Aksi</th>
+                                {{-- <th class="text-center">Foto</th> --}}
+                                {{-- <th class="text-center">Aksi</th> --}}
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($response['data'] as $row)
                                 <tr>
-                                    <td class="text-center">{{ $loop->iteration }}</td>
+                                    <td class="text-center" style="width:100px">{{ $loop->iteration }}</td>
                                     <td>{{ $row['name'] }}</td>
-                                    <td class="text-center"><img src="{{ $row['image'] }}" alt="gambar ikan paus"
-                                            width="330px" /></td>
-                                    <td class="text-center">
+                                    {{-- <td class="text-center"><img src="{{ $row['image'] }}" alt="gambar ikan paus"
+                                            width="330px" /></td> --}}
+                                    {{-- <td class="text-center">
                                         <form action="/u/author/{{ $row['id'] }}"
                                             onsubmit="return confirm('Apakah anda yakin akan menghapus data?')"
                                             method="post">
@@ -58,13 +58,13 @@
                                                 Edit
                                             </a>
 
-                                            {{-- <button type="submit" data-id="authorDelete{{ $row['image'] }}"
+                                            <button type="submit" data-id="authorDelete{{ $row['image'] }}"
                                                 class="btn fs-small btn-danger">
                                                 <span class="fa fa-fw fa-trash mx-1"></span>
                                                 Hapus
-                                            </button> --}}
+                                            </button>
                                         </form>
-                                    </td>
+                                    </td> --}}
                                 </tr>
                             @endforeach
                         </tbody>

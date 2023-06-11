@@ -73,7 +73,7 @@
                                         {{-- <a href="/u/transaction/{{ $item->id }}/detail"
                                             class="badge p-2 bg-badge-info color-info rad-6 fs-small text-decoration-none">Detail</a> --}}
                                         @if ($item['status'] == 'PAYMENT REVIEW')
-                                            <a href="/u/transaction/{{ $item['id'] }}/status"
+                                            <a href="/u/transaction2/{{ $item['id'] }}/status"
                                                 onclick="return confirm('Anda Yakin Menyetujui Langganan Ini?')"
                                                 class="badge p-2 bg-badge-info color-info rad-6 fs-small text-decoration-none">Setujui</a>
                                         @else

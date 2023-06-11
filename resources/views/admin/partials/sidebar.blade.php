@@ -31,11 +31,42 @@
             </a>
         </li> --}}
 
-    <li class="nav-item active border-top border-bottom">
-        <a class="nav-link px-5" href="/u/transaction">
-            <i class="fas fa-fw fa-money-check"></i>
-            <span>Transaksi</span>
+    <li class="nav-item active border-bottom">
+        <a class="nav-link px-5 collapsed" href="#" data-toggle="collapse" data-target="#collapseOffer"
+            aria-expanded="true" aria-controls="collapseOffer">
+            <i class="fas fa-fw fa-inbox"></i>
+            <span>Partner Offer</span>
         </a>
+        <div id="collapseOffer" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">All Partner Offer</h6>
+                <a class="collapse-item" href="/u/transaction3">Waiting List</a>
+                <a class="collapse-item" href="/u/transaction4">Approved</a>
+                <a class="collapse-item" href="/u/transaction5">Rejected</a>
+            </div>
+        </div>
+    </li>
+    {{-- 
+    <li class="nav-item active border-top border-bottom">
+        <a class="nav-link px-5" href="/u/transaction3">
+            <i class="fas fa-fw fa-inbox"></i>
+            <span>Partner Offer</span>
+        </a>
+    </li> --}}
+
+    <li class="nav-item active border-bottom">
+        <a class="nav-link px-5 collapsed" href="#" data-toggle="collapse" data-target="#collapseTransaction"
+            aria-expanded="true" aria-controls="collapseTransaction">
+            <i class="fas fa-fw fa-money-check"></i>
+            <span>Transaction</span>
+        </a>
+        <div id="collapseTransaction" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">All Transaction</h6>
+                <a class="collapse-item" href="/u/transaction">Users</a>
+                <a class="collapse-item" href="/u/transaction2">Partners</a>
+            </div>
+        </div>
     </li>
 
     <li class="nav-item active border-bottom">

@@ -46,15 +46,20 @@ class Book2Controller extends Controller
      */
     public function create()
     {
-        $title = 'Books';
-        $authors = Author::all();
-        $publishers = Publisher::all();
-        $genres = Genre::all();
-        return view('admin.books.create', [
+        $title = 'Makeup Brand';
+        $http = new Client();
+
+        $brandData = $http->request('GET', 'https://api.arvigo.site/v1/brands', [
+            'headers' => [
+                'Authorization' => 'Bearer ' . env('HEADER_TOKEN', "somedefaultvalue"),
+            ],
+        ]);
+        $getBrandData = (string) $brandData->getBody();
+        $responseBrandData = json_decode($getBrandData, true);
+
+        return view('admin.books-2.create', [
             'title' => $title,
-            'authors' => $authors,
-            'publishers' => $publishers,
-            'genres' => $genres,
+            'brandData' => $responseBrandData,
         ]);
     }
 
@@ -66,57 +71,67 @@ class Book2Controller extends Controller
      */
     public function store(Request $request)
     {
+        $getAllData = $request->all();
+        $photos = $getAllData['images'];
+        $varianData = json_encode([
+            [
+                "name" => "deepar",
+                "link_ar" => $request->get('deepar'),
+                "is_primary_variant" => true
+            ],
+        ], JSON_UNESCAPED_SLASHES);
 
-        // ddd($request->all());
-        $request->validate([
-            'author_id' => 'required',
-            'publisher_id' => 'required',
-            'genre_id' => 'required',
-            'title' => 'required|string|max:255',
-            'publish_date' => 'required',
-            'book_pages' => 'required',
-            'description' => 'required|string',
-            'rating' => 'required',
-            'price' => 'required',
-            'cover_image' => 'required',
-        ]);
+        $http = new Client();
 
-        if ($request->file('cover_image')) {
-            $cover_image = $request->file('cover_image')->store('book', 'public');
+        $getProductData = [
+            [
+                'name'     => 'name',
+                'contents' => $request->get('name'),
+            ],
+            [
+                'name' => 'description',
+                'contents' => $request->get('description'),
+            ],
+            [
+                'name' => 'brand_id',
+                'contents' => $request->get('brand'),
+            ],
+            [
+                'name' => 'category_id',
+                'contents' => '2',
+            ],
+            [
+                'name' => 'detail_product_tags',
+                'contents' => $request->get('tag'),
+            ],
+            [
+                'name'     => 'detail_product_variants',
+                'contents' => $varianData
+            ],
+        ];
+
+        foreach ($photos as $k =>  $file) {
+            if (file_exists($file)) {
+                $extension = $file->getClientOriginalExtension();
+                array_push($getProductData, [
+                    'name' => 'images',
+                    'contents' => fopen($file->getRealPath(), 'r'),
+                    'filename' => 'deepAr.' . "." . $extension
+                ]);
+            }
         }
 
-        $googleConfigFile = file_get_contents('https://storage.googleapis.com/laravel-bookstore-app/hairullah-project-56431d962189.json');
-        $storage = new StorageClient([
-            'keyFile' => json_decode($googleConfigFile, true)
+        $response = $http->request('POST', 'https://api.arvigo.site/v1/products/initials', [
+            'headers' => [
+                'Authorization' => 'Bearer ' . env('HEADER_TOKEN', "somedefaultvalue"),
+            ],
+            'multipart' => $getProductData
         ]);
 
-        $storageBucketName = config('googlecloud.storage_bucket');
-        $bucket = $storage->bucket($storageBucketName);
-        $fileSource = $cover_image;
-        $googleCloudStoragePath = $cover_image;
-        /* Upload a file to the bucket.
-        Using Predefined ACLs to manage object permissions, you may
-        upload a file and give read access to anyone with the URL.*/
-        $bucket->upload($fileSource, [
-            // 'predefinedAcl' => 'publicRead',
-            'name' => $googleCloudStoragePath
-        ]);
 
-        Book::create([
-            'author_id' => $request->author_id,
-            'publisher_id' => $request->publisher_id,
-            'genre_id' => $request->genre_id,
-            'title' => $request->title,
-            'publish_date' => $request->publish_date,
-            'book_pages' => $request->book_pages,
-            'description' => $request->description,
-            'rating' => $request->rating,
-            'price' => $request->price,
-            'cover_image' => $cover_image,
-            'url_cloud' => 'https://storage.cloud.google.com/' . $storageBucketName . '/' . $googleCloudStoragePath
-        ]);
+        return redirect('/u/book2')->with('success', "Data berhasil ditambahkan");
 
-        return redirect('/u/book')->with('success', "Data berhasil ditambahkan");
+        // return dd($getProductData);
     }
 
     /**

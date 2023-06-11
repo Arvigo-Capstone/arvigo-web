@@ -11,20 +11,20 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use PDF;
 
-class TransactionController extends Controller
+class Transaction3Controller extends Controller
 {
     public function index()
     {
-        $title = 'Users Transaction';
+        $title = 'Waiting List of Partner Offer';
         $http = new Client();
-        $data = $http->request('GET', 'https://api.arvigo.site/v1/subscription/user', [
+        $data = $http->request('GET', 'https://api.arvigo.site/v1/merchants/product', [
             'headers' => [
                 'Authorization' => 'Bearer ' . env('HEADER_TOKEN', "somedefaultvalue"),
             ],
         ]);
         $getData = (string) $data->getBody();
         $response = json_decode($getData, true);
-        return view('admin.transactions.index', compact('response', 'title'));
+        return view('admin.transactions-3.index', compact('response', 'title'));
     }
 
     // public function detail($id)
@@ -41,16 +41,37 @@ class TransactionController extends Controller
     public function status($id)
     {
         $data = [
-            'status' => true
+            "product_id" => (int)$id,
+            "status" => "APPROVED",
+            "rejected_note" => "-"
         ];
         $http = new Client();
-        $data = $http->request('PUT', 'https://api.arvigo.site/v1/subscription/user/verify/' . $id, [
+        $data = $http->request('PUT', 'https://api.arvigo.site/v1/products/merchants/verify', [
             'headers' => [
                 'Authorization' => 'Bearer ' . env('HEADER_TOKEN', "somedefaultvalue"),
             ],
-            'json' => $data
+            'json' => $data,
         ]);
-        return redirect('/u/transaction')->with('success', "Data berhasil diubah pada " . Carbon::now());
+        return redirect('/u/transaction3')->with('success', "Pengajuan berhasil disetujui pada " . Carbon::now());
+        // dd($id);
+    }
+
+    public function reject(Request $request, $id)
+    {
+        $data = [
+            "product_id" => (int)$id,
+            "status" => "REJECTED",
+            "rejected_note" => $request->alasan_tolak
+        ];
+        $http = new Client();
+        $data = $http->request('PUT', 'https://api.arvigo.site/v1/products/merchants/verify', [
+            'headers' => [
+                'Authorization' => 'Bearer ' . env('HEADER_TOKEN', "somedefaultvalue"),
+            ],
+            'json' => $data,
+        ]);
+        return redirect('/u/transaction3')->with('success', "Pengajuan berhasil ditolak pada " . Carbon::now());
+        // dd($id);
     }
 
     // public function report()

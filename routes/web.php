@@ -7,6 +7,10 @@ use App\Http\Controllers\Admin\GenreController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\PublisherController;
 use App\Http\Controllers\Admin\TransactionController as AdminTransactionController;
+use App\Http\Controllers\Admin\Transaction2Controller as AdminTransaction2Controller;
+use App\Http\Controllers\Admin\Transaction3Controller as AdminTransaction3Controller;
+use App\Http\Controllers\Admin\Transaction4Controller as AdminTransaction4Controller;
+use App\Http\Controllers\Admin\Transaction5Controller as AdminTransaction5Controller;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\User\BookController as UserBookController;
@@ -120,6 +124,30 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
             Route::get('/transaction/{id}/detail', 'detail');
             Route::get('/transaction/{id}/status', 'status');
             Route::get('/transaction/report', 'report');
+        });
+        Route::controller(AdminTransaction2Controller::class)->group(function () {
+            Route::get('/transaction2', 'index');
+            Route::get('/transaction2/{id}/detail', 'detail');
+            Route::get('/transaction2/{id}/status', 'status');
+            Route::get('/transaction2/report', 'report');
+        });
+        Route::controller(AdminTransaction3Controller::class)->group(function () {
+            Route::get('/transaction3', 'index');
+            Route::get('/transaction3/{id}/reject', 'reject');
+            Route::get('/transaction3/{id}/status', 'status');
+            Route::get('/transaction3/report', 'report');
+        });
+        Route::controller(AdminTransaction4Controller::class)->group(function () {
+            Route::get('/transaction4', 'index');
+            Route::get('/transaction4/{id}/reject', 'reject');
+            Route::get('/transaction4/{id}/status', 'status');
+            Route::get('/transaction4/report', 'report');
+        });
+        Route::controller(AdminTransaction5Controller::class)->group(function () {
+            Route::get('/transaction5', 'index');
+            Route::get('/transaction5/{id}/reject', 'reject');
+            Route::get('/transaction5/{id}/status', 'status');
+            Route::get('/transaction5/report', 'report');
         });
     });
 });

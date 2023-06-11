@@ -65,13 +65,13 @@
                                                 class="btn fs-small btn-info text-decoration-none">
                                                 <span class="fa fa-fw fa-syringe mx-1"></span>
                                                 Edit
-                                            </a> --}}
+                                            </a>
 
-                                    {{-- <button type="submit" class="btn fs-small btn-danger">
+                                            <button type="submit" class="btn fs-small btn-danger">
                                                 <span class="fa fa-fw fa-trash mx-1"></span>
                                                 Hapus
-                                            </button> --}}
-                                    {{-- </form>
+                                            </button>
+                                        </form>
                                     </td> --}}
                                 </tr>
                             @endforeach
